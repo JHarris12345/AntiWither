@@ -27,22 +27,42 @@ public final class Main extends JavaPlugin {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (command.getName().equals("awreload")) {
-            if (sender instanceof Player) {
-                Player player = (Player) sender;
-                reloadConfig();
-                player.sendMessage(ChatColor.GREEN + "The config has been reloaded!");
-                System.out.println(ChatColor.WHITE + "[AntiWither] " + ChatColor.GREEN + "The config has been reloaded!");
+            if (args.length > 0) {
+                if (sender instanceof Player) {
+                    Player player = (Player) sender;
+                    if(player.hasPermission("antiwither.reload")) {
+                        player.sendMessage(ChatColor.RED + "Did you mean /awreload?");
+                    } else {
+                        player.sendMessage(ChatColor.RED + "You don't have permission to do this!");
+                    }
+                } else {
+                    System.out.println(ChatColor.WHITE + "[AntiWither] " + ChatColor.RED + "Did you mean `awreload`?");
+                }
+
             } else {
-                reloadConfig();
-                System.out.println(ChatColor.WHITE + "[AntiWither] " + ChatColor.GREEN + "The config has been reloaded!");
+                if (sender instanceof Player) {
+
+                    Player player = (Player) sender;
+                    if(player.hasPermission("antiwither.reload")) {
+                        reloadConfig();
+                        player.sendMessage(ChatColor.GREEN + "The config has been reloaded!");
+                        System.out.println(ChatColor.WHITE + "[AntiWither] " + ChatColor.GREEN + "The config has been reloaded!");
+                    } else {
+                        player.sendMessage(ChatColor.RED + "You don't have permission to do this!");
+                    }
+
+                } else {
+                    reloadConfig();
+                    System.out.println(ChatColor.WHITE + "[AntiWither] " + ChatColor.GREEN + "The config has been reloaded!");
+                }
             }
         }
         return true;
     }
 
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
-        System.out.println("[AntiWither] The plugin has been disabled!");
-    }
+        @Override
+        public void onDisable () {
+            // Plugin shutdown logic
+            System.out.println("[AntiWither] The plugin has been disabled!");
+        }
 }

@@ -31,13 +31,15 @@ public class WitherSpawnEvent implements Listener {
         String message = plugin.getConfig().getString("Spawn-Attempt-Message");
         boolean bypass = plugin.getConfig().getBoolean("AllowBypass");
         String world = e.getEntity().getLocation().getWorld().getName();
+        List<String> worldslist;
+        worldslist = new ArrayList<>();
+        for (String b : plugin.getConfig().getStringList("World-Blacklist"))worldslist.add(b);
+
 
         if(plugin.getConfig().getBoolean("DisableWithers")){
 
-            List<String> blist = plugin.getConfig().getStringList("World-Blacklist");
-
             if(e.getSpawnReason().equals(CreatureSpawnEvent.SpawnReason.BUILD_WITHER)) {
-                if (blist.contains(world)) {
+                if (worldslist.contains(world)) {
                     return;
                 }
 
