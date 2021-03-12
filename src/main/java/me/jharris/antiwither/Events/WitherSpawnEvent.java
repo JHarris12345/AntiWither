@@ -45,6 +45,7 @@ public class WitherSpawnEvent implements Listener {
                     for (Entity entity : e.getEntity().getNearbyEntities(3, 3, 3)){
                         if (entity instanceof Player){
                             Player player = (Player) entity;
+                            if(message.isEmpty()) return;
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
                         }
                     }
@@ -54,6 +55,7 @@ public class WitherSpawnEvent implements Listener {
                             Player player = (Player) entity;
                             if(!player.hasPermission("antiwither.bypass")) {
                                 e.setCancelled(true);
+                                if(message.isEmpty()) return;
                                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
                             }
                         }

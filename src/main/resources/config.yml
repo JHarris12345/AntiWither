@@ -11,6 +11,6 @@ World-Blacklist:
   - world2
   - world3
 
-# The message you would like to give someone for trying to spawn a wither
+# The message you would like to give someone for trying to spawn a wither. Set to '' to disable the message.
 Spawn-Attempt-Message: '&cSpawning withers is disabled!'
 
