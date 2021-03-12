@@ -36,8 +36,8 @@ public class WitherSpawnEvent implements Listener {
 
             List<String> blist = plugin.getConfig().getStringList("World-Blacklist");
 
-            if(e.getSpawnReason().equals(CreatureSpawnEvent.SpawnReason.BUILD_WITHER)){
-                if(blist.contains(world)){
+            if(e.getSpawnReason().equals(CreatureSpawnEvent.SpawnReason.BUILD_WITHER)) {
+                if (blist.contains(world)) {
                     return;
                 }
 
@@ -54,17 +54,14 @@ public class WitherSpawnEvent implements Listener {
                     for (Entity entity : e.getEntity().getNearbyEntities(3, 3, 3)){
                         if (entity instanceof Player){
                             Player player = (Player) entity;
-                            if(!player.hasPermission("antiwither.bypass")){
+                            if(!player.hasPermission("antiwither.bypass")) {
                                 e.setCancelled(true);
                                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
                             }
                         }
                     }
                 }
-
             }
-
         }
-        return;
     }
 }
