@@ -1,0 +1,16 @@
+# If true, wither spawning will be disabled
+DisableWithers: true
+
+# If this is false then withers will be disabled for everyone (as long as DisableWithers is true).
+# If this is true AND DisableWithers is true, then people with the permission antiwither.bypass will still be able to spawn withers
+AllowBypass: false
+
+# If a world is in this list, players will be able to spawn withers even with DisableWithers set to true
+World-Blacklist:
+  - world1
+  - world2
+  - world3
+
+# The message you would like to give someone for trying to spawn a wither
+Spawn-Attempt-Message: '&cSpawning withers is disabled!'
+

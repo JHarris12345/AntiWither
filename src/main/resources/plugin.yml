@@ -1,0 +1,12 @@
+name: AntiWither
+version: ${project.version}
+main: me.jharris.antiwither.Main
+api-version: 1.16
+prefix: AntiWither
+authors: [ JHarris ]
+commands:
+  awreload:
+    description: Reload the plugin
+    usage: /<command>
+    aliases: [awr]
+
