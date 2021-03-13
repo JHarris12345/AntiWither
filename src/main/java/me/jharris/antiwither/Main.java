@@ -65,9 +65,9 @@ public final class Main extends JavaPlugin {
         return true;
     }
 
-        @Override
-        public void onDisable () {
-            // Plugin shutdown logic
-            System.out.println("[AntiWither] The plugin has been disabled!");
+    @Override
+    public void onDisable () {
+        // Plugin shutdown logic
+        System.out.println("[AntiWither] The plugin has been disabled!");
         }
 }
