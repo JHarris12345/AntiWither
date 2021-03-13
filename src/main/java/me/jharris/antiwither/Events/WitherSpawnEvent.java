@@ -39,7 +39,7 @@ public class WitherSpawnEvent implements Listener {
 
             if(e.getSpawnReason().equals(CreatureSpawnEvent.SpawnReason.BUILD_WITHER)) {
                 if (worldslist.contains(world)) return;
-                
+
                 if(!bypass){
                     e.setCancelled(true);
 

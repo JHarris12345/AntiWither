@@ -58,6 +58,8 @@ public final class Main extends JavaPlugin {
 
                 } else {
                     reloadConfig();
+                    WitherSpawnEvent.worldslist.clear();
+                    for (String b : getConfig().getStringList("World-Blacklist"))WitherSpawnEvent.worldslist.add(b);
                     System.out.println(ChatColor.WHITE + "[AntiWither] " + ChatColor.GREEN + "The config has been reloaded!");
                 }
             }
